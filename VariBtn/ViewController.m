@@ -18,6 +18,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
+- (IBAction)btnClicked:(id)sender {
+    UIButton *b0 = (UIButton*)sender;
+    if (!_selectedBtn) {
+        _selectedBtn = [[UIButton alloc] init];
+    }
+    if (b0 == _selectedBtn) {
+        [b0 setBackgroundColor:[UIColor redColor]];
+    } else {
+        _selectedBtn.selected = NO;
+        [_selectedBtn setBackgroundColor:[UIColor whiteColor]];
+        b0.selected = YES;
+        _selectedBtn = b0;
+    }
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
